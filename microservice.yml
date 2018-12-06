@@ -109,3 +109,4 @@ environment:
     help: |
       Create a Sendgrid account and register an API key at https://app.sendgrid.com/settings/api_keys
     type: string
+    required: true
