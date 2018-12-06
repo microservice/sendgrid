@@ -6,8 +6,8 @@ Usage
 
 ```coffee
 # Storyscript
-sendgrid simple from: "sender@dummy.com" to: "recipient@dummy.com" subject: "Hello" content: "…"
-sendgrid advanced
+sendgrid send_one from: "sender@dummy.com" to: "recipient@dummy.com" subject: "Hello" content: "…"
+sendgrid send_many
   personalizations: [
     to: [{email: "recipient1@dummy.com", name: "Mister Dummy"}],
     subject: "Dear Mr. Dummy",

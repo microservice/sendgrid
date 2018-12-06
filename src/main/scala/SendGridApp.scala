@@ -238,7 +238,7 @@ class SendGridService(apiToken: String) extends Directives with JsonSupport {
     handleRejections(rejectionHandler) {
       handleExceptions(exceptionHandler) {
         extractRequestContext { ctx =>
-          path("simple") {
+          path("send_one") {
             post {
               entity(as[EmailRequest]) { email =>
                 val content = new Content(email.content_type getOrElse "text/plain", email.content)
@@ -251,7 +251,7 @@ class SendGridService(apiToken: String) extends Directives with JsonSupport {
               }
             }
           } ~
-          path("advanced") {
+          path("send_many") {
             post {
               entity(as[SendGridRequest]) { email =>
                   val request = new Request();

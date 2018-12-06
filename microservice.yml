@@ -3,9 +3,9 @@ lifecycle:
   startup:
     command: ["/app/bin/omg-sendgrid"]
 actions:
-  simple:
+  send_one:
     http:
-      path: /simple
+      path: /send_one
       method: post
       port: 8000
     arguments:
@@ -36,9 +36,9 @@ actions:
         message_id:
           type: string
 
-  advanced:
+  send_many:
     http:
-      path: /advanced
+      path: /send_many
       method: post
       port: 8000
     arguments:
