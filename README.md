@@ -12,7 +12,7 @@ sendgrid send_many
     "to": [{"email": "recipient1@dummy.com", "name": "Mister Dummy"}],
     "subject": "Dear Mr. Dummy",
     "dynamic_template_data": {
-      dynamic_parameter: "set with a value"
+      "dynamic_parameter": "set with a value"
     }
   }]
   from: {"email": "sender@dummy.com", "name": "My sender name"}
