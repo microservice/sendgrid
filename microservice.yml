@@ -1,0 +1,112 @@
+omg: 1
+lifecycle:
+  startup:
+    command: ["/app/bin/omg-sendgrid"]
+actions:
+  send_one:
+    http:
+      path: /send_one
+      method: post
+      port: 8000
+    arguments:
+      from:
+        type: string
+        required: true
+        in: requestBody
+      to:
+        type: string
+        required: true
+        in: requestBody
+      subject:
+        type: string
+        required: true
+        in: requestBody
+      content:
+        type: string
+        required: true
+        in: requestBody
+      content_type:
+        type: string
+        required: true
+        in: requestBody
+    output:
+      type: object
+      contentType: application/json
+      properties:
+        message_id:
+          type: string
+
+  send_many:
+    http:
+      path: /send_many
+      method: post
+      port: 8000
+    arguments:
+      personalizations:
+        type: object
+        required: true
+        in: requestBody
+      from:
+        type: object
+        required: true
+        in: requestBody
+      subject:
+        type: string
+        in: requestBody
+      content:
+        type: list
+        required: true
+        in: requestBody
+      reply_to:
+        type: object
+        in: requestBody
+      attachments:
+        type: list
+        in: requestBody
+      template_id:
+        type: string
+        in: requestBody
+      sections:
+        type: object
+        in: requestBody
+      headers:
+        type: object
+        in: requestBody
+      categories:
+        type: list
+        in: requestBody
+      custom_args:
+        type: object
+        in: requestBody
+      send_at:
+        type: int
+        in: requestBody
+      batch_id:
+        type: string
+        in: requestBody
+      asm:
+        type: object
+        in: requestBody
+      ip_pool_name:
+        type: string
+        in: requestBody
+      mail_settings:
+        type: object
+        in: requestBody
+      tracking_settings:
+        type: object
+        in: requestBody
+
+    output:
+      type: object
+      contentType: application/json
+      properties:
+        message_id:
+          type: string
+
+environment:
+  SENDGRID_API_TOKEN:
+    help: |
+      Create a Sendgrid account and register an API key at https://app.sendgrid.com/settings/api_keys
+    type: string
+    required: true

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker run -it --rm -v "$(pwd)":/src hseeberger/scala-sbt:8u181_2.12.6_1.2.1 \
+    /bin/bash -c \
+    "(cd /src && sbt universal:stage)"
