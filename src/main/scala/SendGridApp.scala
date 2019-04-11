@@ -282,8 +282,8 @@ object SendGridApp {
 
     val apiToken =  sys.env("SENDGRID_API_TOKEN")
     val sendgridService = new SendGridService(apiToken)
-    val bindingFuture = Http().bindAndHandle(sendgridService.route, "localhost", 8080)
+    val bindingFuture = Http().bindAndHandle(sendgridService.route, "0.0.0.0", 8080)
 
-    println(s"Server online at http://localhost:8080/")
+    println(s"Server online at http://0.0.0.0:8080/")
   }
 }
