@@ -7,7 +7,7 @@ actions:
     http:
       path: /send_one
       method: post
-      port: 8000
+      port: 8080
     arguments:
       from:
         type: string
@@ -40,7 +40,7 @@ actions:
     http:
       path: /send_many
       method: post
-      port: 8000
+      port: 8080
     arguments:
       personalizations:
         type: object
