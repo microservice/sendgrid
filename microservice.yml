@@ -3,7 +3,7 @@ lifecycle:
   startup:
     command: ["/app/bin/omg-sendgrid"]
 actions:
-  send_one:
+  sendOne:
     http:
       path: /send_one
       method: post
@@ -36,7 +36,7 @@ actions:
         message_id:
           type: string
 
-  send_many:
+  sendMany:
     http:
       path: /send_many
       method: post
