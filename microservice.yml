@@ -2,6 +2,10 @@ omg: 1
 lifecycle:
   startup:
     command: ["/app/bin/omg-sendgrid"]
+info:
+  version: 1.0.0
+  title: Sendgrid
+  description: This is a sendgrid service
 actions:
   sendOne:
     http:
