@@ -2,8 +2,12 @@ omg: 1
 lifecycle:
   startup:
     command: ["/app/bin/omg-sendgrid"]
+info:
+  version: 1.0.0
+  title: Sendgrid
+  description: This is a sendgrid service
 actions:
-  send_one:
+  sendOne:
     http:
       path: /send_one
       method: post
@@ -36,7 +40,7 @@ actions:
         message_id:
           type: string
 
-  send_many:
+  sendMany:
     http:
       path: /send_many
       method: post
