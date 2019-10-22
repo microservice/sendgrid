@@ -50,13 +50,36 @@ actions:
       port: 8080
     arguments:
       personalizations:
-        type: object
+        type: list
         required: true
         in: requestBody
+        #list:
+          #elements:
+            #type: object
+            #properties:
+              #to:
+                #type: any
+                #required: false
+              #cc:
+                #type: any
+                #required: false
+              #substitutions:
+                #type: any
+                #required: false
+              #subject:
+                #type: any
+                #required: false
       from:
         type: object
         required: true
         in: requestBody
+        properties:
+          email:
+            type: string
+            required: true
+          name:
+            type: string
+            required: false
       subject:
         type: string
         in: requestBody
@@ -64,26 +87,65 @@ actions:
         type: list
         required: true
         in: requestBody
+        #list:
+          #elements:
+            #type: object
+            #properties:
+              #type:
+                #type: string
+                #required: true
+              #value:
+                #type: string
+                #required: true
       reply_to:
         type: object
         in: requestBody
+        properties:
+          email:
+            type: string
+            required: true
+          name:
+            type: string
+            required: false
       attachments:
         type: list
         in: requestBody
+        #list:
+          #elements:
+            #type: object
+            #properties:
+              #content:
+                #type: string
+                #required: true
+              #type:
+                #type: string
+                #required: false
+              #filename:
+                #type: string
+                #required: true
+              #disposition:
+                #type: string
+                #required: false
+              #content_id:
+                #type: string
+                #required: false
       template_id:
         type: string
         in: requestBody
       sections:
-        type: object
+        type: any
         in: requestBody
       headers:
-        type: object
+        type: any
         in: requestBody
       categories:
         type: list
         in: requestBody
+        #list:
+          #elements:
+            #type: string
       custom_args:
-        type: object
+        type: any
         in: requestBody
       send_at:
         type: int
@@ -94,14 +156,74 @@ actions:
       asm:
         type: object
         in: requestBody
+        properties:
+          group:
+            type: int
+            required: true
+          groups_to_display:
+            type: list
+            required: false
+            #list:
+              #elements:
+                #type: int
       ip_pool_name:
         type: string
         in: requestBody
       mail_settings:
         type: object
         in: requestBody
+        properties:
+          bcc:
+            type: object
+            required: false
+            properties:
+              enable:
+                type: boolean
+                required: false
+              email:
+                type: string
+                required: false
+          bypass_list_management:
+            type: object
+            required: false
+            properties:
+              enable:
+                type: boolean
+                required: false
+          footer:
+            type: object
+            required: false
+            properties:
+              enable:
+                type: boolean
+                required: false
+              text:
+                type: string
+                required: false
+              html:
+                type: string
+                required: false
+          sandbox_mode:
+            type: object
+            required: false
+            properties:
+              enable:
+                type: boolean
+          spam_check:
+            type: object
+            required: false
+            properties:
+              enable:
+                type: boolean
+                required: false
+              threshold:
+                type: int
+                required: false
+              post_to_url:
+                type: string
+                required: false
       tracking_settings:
-        type: object
+        type: any
         in: requestBody
 
     output:
