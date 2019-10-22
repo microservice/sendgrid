@@ -1,4 +1,11 @@
 omg: 1
+info:
+  version: 0.1.0
+  title: OMG-Sendgrid
+  description: Access to the Sendgrid email API
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
 lifecycle:
   startup:
     command: ["/app/bin/omg-sendgrid"]
