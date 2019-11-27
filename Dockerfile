@@ -13,4 +13,4 @@ FROM        java:8-jre-alpine
 RUN         apk add --update bash
 WORKDIR		/app
 COPY 		--from=builder /scala/target/universal/stage .
-ENTRYPOINT  /app/bin/omg-sendgrid
+ENTRYPOINT  /app/bin/oms-sendgrid

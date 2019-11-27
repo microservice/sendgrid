@@ -1,6 +1,6 @@
 enablePlugins(JavaAppPackaging)
 
-name := "omg-sendgrid"
+name := "oms-sendgrid"
 organization := "asyncy"
 version := "0.1"
 scalaVersion := "2.11.8"
@@ -17,4 +17,3 @@ libraryDependencies ++= {
     "com.sendgrid" % "sendgrid-java" % "4.3.0",
   )
 }
-

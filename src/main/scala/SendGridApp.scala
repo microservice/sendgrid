@@ -189,7 +189,7 @@ trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
 // https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
 class SendGridService(apiToken: String) extends Directives with JsonSupport {
 
-  implicit val system = ActorSystem("omg-sendgrid-client")
+  implicit val system = ActorSystem("oms-sendgrid-client")
   implicit val materializer = ActorMaterializer()
   implicit val executionContext = system.dispatcher
   val sg = new SendGrid(apiToken)
@@ -270,7 +270,7 @@ class SendGridService(apiToken: String) extends Directives with JsonSupport {
 object SendGridApp {
   def main(args: Array[String]) {
 
-    implicit val system = ActorSystem("omg-sendgrid")
+    implicit val system = ActorSystem("oms-sendgrid")
     implicit val materializer = ActorMaterializer()
     implicit val executionContext = system.dispatcher
 
