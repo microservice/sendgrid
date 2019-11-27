@@ -1,14 +1,19 @@
-omg: 1
+oms: 1
 info:
   version: 0.1.0
   title: Sendgrid
   description: Access to the Sendgrid email API
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
+  contact:
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
 lifecycle:
   startup:
-    command: ['/app/bin/oms-sendgrid']
+    command:
+      - /app/bin/oms-sendgrid
 actions:
   sendOne:
     http:
@@ -42,7 +47,6 @@ actions:
       properties:
         message_id:
           type: string
-
   sendMany:
     http:
       path: /send_many
@@ -53,22 +57,6 @@ actions:
         type: list
         required: true
         in: requestBody
-        #list:
-        #elements:
-        #type: object
-        #properties:
-        #to:
-        #type: any
-        #required: false
-        #cc:
-        #type: any
-        #required: false
-        #substitutions:
-        #type: any
-        #required: false
-        #subject:
-        #type: any
-        #required: false
       from:
         type: object
         required: true
@@ -87,16 +75,6 @@ actions:
         type: list
         required: true
         in: requestBody
-        #list:
-        #elements:
-        #type: object
-        #properties:
-        #type:
-        #type: string
-        #required: true
-        #value:
-        #type: string
-        #required: true
       reply_to:
         type: object
         in: requestBody
@@ -110,25 +88,6 @@ actions:
       attachments:
         type: list
         in: requestBody
-        #list:
-        #elements:
-        #type: object
-        #properties:
-        #content:
-        #type: string
-        #required: true
-        #type:
-        #type: string
-        #required: false
-        #filename:
-        #type: string
-        #required: true
-        #disposition:
-        #type: string
-        #required: false
-        #content_id:
-        #type: string
-        #required: false
       template_id:
         type: string
         in: requestBody
@@ -141,9 +100,6 @@ actions:
       categories:
         type: list
         in: requestBody
-        #list:
-        #elements:
-        #type: string
       custom_args:
         type: any
         in: requestBody
@@ -163,9 +119,6 @@ actions:
           groups_to_display:
             type: list
             required: false
-            #list:
-            #elements:
-            #type: int
       ip_pool_name:
         type: string
         in: requestBody
@@ -225,17 +178,16 @@ actions:
       tracking_settings:
         type: any
         in: requestBody
-
     output:
       type: object
       contentType: application/json
       properties:
         message_id:
           type: string
-
 environment:
   SENDGRID_API_TOKEN:
-    help: |
-      Create a Sendgrid account and register an API key at https://app.sendgrid.com/settings/api_keys
+    help: >
+      Create a Sendgrid account and register an API key at
+      https://app.sendgrid.com/settings/api_keys
     type: string
     required: true
